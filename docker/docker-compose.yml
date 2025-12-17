@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  ocr4all:
+    image: uniwuezpd/ocr4all:latest
+    container_name: ocr4all
+    ports:
+      - "8080:8080"
+    volumes:
+      # Persistent OCR4All data (projects, images, results)
+      - ocr4all-data:/var/ocr4all
+    restart: unless-stopped
+
+volumes:
+  ocr4all-data:
