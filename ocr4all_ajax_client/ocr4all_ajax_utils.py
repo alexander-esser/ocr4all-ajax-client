@@ -237,7 +237,7 @@ def ocr4all_convert_project_files(session: requests.Session, base_url, delete_bl
         r = session.post(
             f"{base_url}/ajax/overview/convertProjectFiles",
             data={"deleteBlank": str(delete_blank).lower(), "dpi": str(int(dpi))},
-            timeout_s=600,
+            timeout=timeout_s,
         )
         r.raise_for_status()
         return r.text
